@@ -64,4 +64,27 @@ NFS-NIS Config
 
 **And do** `make`
 
-**And its done**
+➡️ For NIS client do ⬅️
+
+**Go to nano /etc/yp.conf and add**
+
+`domain inova.pt server central.inova.pt`
+
+**Now go to nano /etc/nsswitch.conf and add nis on those lines**
+
+```
+passwd:         files systemd nis
+group:          files systemd nis
+shadow:         files nis
+hosts:          files dns nis
+```
+**Go to nano /etc/pam.d/common-session and add this at the end**
+`session optional        pam_mkhomedir.so skel=/etc/skel umask=077`
+
+**Restart nis and your good to go**
+
+`systemctl restart nis`
+
+**If you want to login to the user j**
+
+`login (youruser)"
