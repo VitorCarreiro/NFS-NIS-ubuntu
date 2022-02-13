@@ -87,4 +87,4 @@ hosts:          files dns nis
 
 **If you want to login to the user j**
 
-`login (youruser)"
+`login (youruser)`
